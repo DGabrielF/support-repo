@@ -1,3 +1,6 @@
+import { letterExistenceValidation, numberExistenceValidation, specialCharExistenceValidation } from "./regex.js";
+import { emptyEntry, entryGreaterThanMaxSize, entryLowerThanMinSize } from "./size.js";
+
 export function passwordValidation(password, passwordSettings, errors) {
   let errorFree = true;
   if (emptyEntry(password)) {
@@ -7,7 +10,7 @@ export function passwordValidation(password, passwordSettings, errors) {
   if (entryLowerThanMinSize(password, passwordSettings.minSize)) {
     errors.push(`A senha deve conter ao menos ${passwordSettings.minSize} letra${passwordSettings.minSize > 1 ? "s" : ""}`);
     errorFree = false;
-  }
+  } 
   if (entryGreaterThanMaxSize(password, passwordSettings.maxSize)) {
     errors.push(`A senha deve conter ao menos ${passwordSettings.maxSize} letras`);
     errorFree = false;
