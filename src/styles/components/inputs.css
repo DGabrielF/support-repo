@@ -1,6 +1,30 @@
 input {
   padding: 2px 5px 3px 5px;
+  max-width: 95%;
+  
+  text-align: center;
+  font-size: 2vh;
 
   border-radius: 10px;
   border: 2px solid #0000009a;
+  outline: none;
+}
+input:focus {
+  outline: 2px solid #00000020;
+}
+input.error {
+  border: 2px solid #990000dd; 
+}
+input.error:focus {
+  outline: 2px solid #990000aa;
+}
+.error-box {
+  padding: 5px 0;
+
+  color: #990000dd;
+  font-size: 1.5vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
