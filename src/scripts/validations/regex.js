@@ -10,7 +10,7 @@ export function specialCharExistenceValidation (value, referenceValue) {
   const specialRegex = /[^a-zA-Z0-9\s]/;
   return (specialRegex.test(value) === referenceValue)
 }
-export function emailValidation (value) {
+export function emailFormValidation (value) {
   const letterRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return (letterRegex.test(value))
 }
