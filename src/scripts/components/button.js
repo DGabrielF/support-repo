@@ -1,3 +1,12 @@
+export function normalButton ({text, functionOnActivation}) {
+  const button = document.createElement("button");
+  button.textContent = text;
+  if (functionOnActivation) {
+    button.addEventListener("click", () => functionOnActivation());
+  }
+  return button;
+}
+
 export function confirmButton ({text, functionOnActivation}) {
   const button = document.createElement("button");
   button.textContent = text;
