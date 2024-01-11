@@ -3,6 +3,7 @@ import { removeToast, toast } from "./components/toast.js";
 import { cleanOrCreateBox } from "./components/elementTools.js"
 import { nameValidation } from "./validations/name.js";
 import { emailValidation } from "./validations/email.js";
+import { cancelButton, confirmButton } from "./components/button.js";
 
 export const state = {
   values: {
@@ -41,43 +42,21 @@ function init () {
   const centralContainer = cleanOrCreateBox("central-container");
   container.appendChild(centralContainer); 
 
-  centralContainer.appendChild(
-    entry({
-      state: state,
-      key: "name",
-      text: "seu nome",
-      type: "text",
-      eventType: "input",
-      validationFunction: () => nameValidation(state.values.name, state.settings.name, state.values.nameErrors),
-    })
-  );
+  centralContainer.appendChild(entry({state: state, key: "name", text: "seu nome", type: "text", eventType: "input", validationFunction: () => nameValidation(state.values.name, state.settings.name, state.values.nameErrors)}));
 
-  centralContainer.appendChild(entry({
-    state: state,
-    key: "email",
-    text: "seu e-mail",
-    type: "email",
-    eventType: "input",
-    validationFunction: () => emailValidation(state.values.email, state.values.emailErrors),
-  }));
+  centralContainer.appendChild(entry({state: state, key: "email", text: "seu e-mail", type: "email",eventType: "input", validationFunction: () => emailValidation(state.values.email, state.values.emailErrors)}));
 
   const buttonArea = cleanOrCreateBox("buttons-area");
 
-  const confirmButton = document.createElement("button");
-  confirmButton.textContent = "confirmar";
-  buttonArea.appendChild(confirmButton);
+  buttonArea.appendChild(confirmButton({text: "confirmar", functionOnActivation: () => console.log("evento acionado")}));
 
-  const cancelButton = document.createElement("button");
-  cancelButton.textContent = "cancelar";
-  buttonArea.appendChild(cancelButton);
+  buttonArea.appendChild(cancelButton({text: "cancelar", functionOnActivation: () => console.log("evento acionado")}));
 
   centralContainer.appendChild(buttonArea);
 
-  const fade = cleanOrCreateBox("fade");
-  container.appendChild(fade);
+  container.appendChild(cleanOrCreateBox("fade"));
 
-  const toastBox = toast({titleText: "erro", type: "error", message: "estamos testando"})
-  container.appendChild(toastBox);
+  container.appendChild(toast({titleText: "erro", type: "error", message: "estamos testando"}));
 
   removeToast();
 }

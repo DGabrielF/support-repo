@@ -1,0 +1,33 @@
+button {
+  padding: 3px 0 2px 0;
+  width: 95%;
+  max-width: 400px;
+
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.8vh;
+
+  border-radius: 10px;
+  border: 2px solid #0000009a;
+  outline: none;
+}
+button:hover {
+  font-weight: bolder;
+
+  background-color: #ffffff;
+  outline: 2px double #0000009a;
+}
+
+button.confirm {
+  background-color: #99ff99aa;
+}
+button.confirm:active {
+  background-color: #99ff99cc;
+}
+
+button.cancel {
+  background-color: #ff9999aa;
+}
+button.cancel:active {
+  background-color: #ff9999cc;
+}
